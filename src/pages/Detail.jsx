@@ -40,6 +40,7 @@ const Detail = () => {
            <p><strong>Native Name:</strong> {Object.values(country.name.nativeName || {})[0]?.common}</p>
            <p><strong>Languages:</strong> {Object.values(country.languages || {}).join(", ")}</p>
            <p><strong>Currencies:</strong> {Object.values(country.currencies || {}).map(c => c.name).join(", ")}</p>
+           <p><strong>Shared Borders:</strong> {country.borders ? country.borders.join(", ") : "None (Island)"}</p>
         </div>
       </div>
     </div>
