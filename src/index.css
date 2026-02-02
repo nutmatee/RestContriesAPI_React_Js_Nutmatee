@@ -1,0 +1,167 @@
+:root { /* Light Mode */
+  --bg-color: #f3f4f6;
+  --text-main: #111827;
+  --text-sub: #4b5563;
+  --card-bg: #ffffff;
+  --header-bg: #ffffff;
+  --input-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --border-color: #dddddd;
+}
+
+.dark {
+  --bg-color: #0f172a; 
+  --text-main: #f9fafb;
+  --text-sub: #9ca3af;
+  --card-bg: #1e293b;
+  --header-bg: #1e293b;
+  --input-bg: #334155;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --border-color: #475569;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-header {
+  background-color: var(--header-bg);
+  padding: 3rem 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: background-color 0.3s ease;
+}
+
+.main-header h1 {
+  font-size: 3.5rem;
+  margin: 0;
+  color: var(--text-main); /* react to ThemeToggler with var from root and dark part (idk wtf is going on)*/
+  letter-spacing: -2px;
+}
+
+.main-header p {
+  color: var(--text-sub); 
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.search-bar {
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  width: 100%;
+  max-width: 400px;
+  padding: 14px 20px;
+  margin: 0 auto 2rem auto;
+  display: block;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 16px;
+  box-shadow: 0 4px 6px var(--shadow);
+  outline: none;
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 50px 20px;
+}
+
+.country-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px var(--shadow);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.country-card:hover {
+  transform: translateY(-10px);
+}
+
+.country-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 24px;
+}
+
+.card-info h3 {
+  margin: 0 0 8px 0;
+}
+
+.card-info p {
+  margin: 4px 0;
+  color: var(--text-sub);
+}
+
+.back-btn-container {
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
+  padding: 0 20px;
+}
+
+.back-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px var(--shadow);
+  transition: all 0.2s ease;
+}
+
+.detail-flag {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px var(--shadow); 
+  margin-bottom: 2rem;
+}
+
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--text-main); 
+  color: var(--bg-color);
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 10px 15px var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* Mobile Responsive (Do i need this?)*/
+@media (max-width: 640px) {
+  .main-header h1 { font-size: 2.2rem; }
+  .country-grid { grid-template-columns: 1fr; }
+  .theme-toggle-btn { bottom: 20px; right: 20px; width: 56px; height: 56px; }
+}
